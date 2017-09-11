@@ -1,6 +1,15 @@
 # GitVersion
 > Transformer to replace %version%-String in your .html or .dart-Files with the current GIT-Version
- 
+
+## Important
+If your version schema should have three digits (e.g. v.1.0.0),   
+tag it only with two e.g. `git tag v1.0` and let `GitVersion` do the the rest.
+
+`GitVersion` counts the commits for a specific version tag and adds the number of
+commits a the last digit. 
+
+`git_version` uses [`git describe --tags --match <tag>`](https://git-scm.com/docs/git-describe) for this.  
+  
 ## Precondition 
 
     # Init your GIT repo
