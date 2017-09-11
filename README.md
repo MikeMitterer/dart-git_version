@@ -59,7 +59,7 @@ Please file feature requests and bugs at the [issue tracker][tracker].
 
 ## Licence
 
-    Copyright 2016 Michael Mitterer (office@mikemitterer.at),
+    Copyright 2017 Michael Mitterer (office@mikemitterer.at),
     IT-Consulting and Development Limited
     
     All rights reserved.
