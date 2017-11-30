@@ -39,5 +39,5 @@ analyze() {
 @Task('Deploy built app.')
 //@Depends(build, test)
 deploy() {
-    new PubApp.global('git_version').activate();
+    run(sdkBin('pub'),arguments: [ "global", "activate", "--source", "path", "."]);
 }
