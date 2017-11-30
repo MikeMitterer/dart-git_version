@@ -2,7 +2,9 @@ pipeline {
     agent {
         label 'kde_neon'
     }
-
+    environment {
+        PATH = "~/.pub-cache/bin:$PATH"
+    }
     stages {
         stage('Prepare') {
             steps {
