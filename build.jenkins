@@ -2,9 +2,9 @@ pipeline {
     agent {
         label 'kde_neon'
     }
-    environment {
-        PATH = "~/.pub-cache/bin:$PATH"
-    }
+    //environment {
+    //    PATH = "/home/jenkins/.pub-cache/bin:$PATH"
+    //}
     stages {
         stage('Prepare') {
             steps {
@@ -19,7 +19,7 @@ pipeline {
         stage('Test') {
             steps {
                 ansiColor('xterm') {
-                    echo "PATH is: $PATH"
+                    //echo "PATH is: $PATH"
                     sh 'grind test'
                 }
             }
