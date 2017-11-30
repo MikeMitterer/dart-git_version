@@ -19,6 +19,7 @@ pipeline {
         stage('Test') {
             steps {
                 ansiColor('xterm') {
+                    echo "PATH is: $PATH"
                     sh 'grind test'
                 }
             }
