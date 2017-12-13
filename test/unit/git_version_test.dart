@@ -17,14 +17,12 @@
  * limitations under the License.
  */
 
-import 'package:logging/logging.dart';
+import 'package:console_log_handler/print_log_handler.dart';
 import 'package:test/test.dart';
 import 'package:git_version/git_version.dart';
 
-import 'config.dart';
-
 void main() {
-    configLogging(level: Level.WARNING);
+    configLogging(show: Level.WARNING);
 
     group('Git', () {
         setUp(() {});

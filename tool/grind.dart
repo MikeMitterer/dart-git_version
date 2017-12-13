@@ -14,8 +14,11 @@ build() {
 clean() => defaultClean();
 
 @Task()
-@Depends(analyze)
-test() {
+@Depends(analyze,testUnit)
+test() {}
+
+@Task()
+testUnit() {
     //new TestRunner().testAsync(files: "test/unit");
     new PubApp.local('test').run([]);
     // new TestRunner().testAsync(files: "test/integration");

@@ -1,12 +1,11 @@
 import 'dart:async';
 import 'package:git_version/git_version.dart';
-import 'package:logging/logging.dart';
-import 'package:logging_handlers/logging_handlers_shared.dart';
+import 'package:console_log_handler/print_log_handler.dart';
 
 Future main(List<String> arguments) async {
     final Logger _logger = new Logger('git_version.main');
 
-    _configLogging(defaultLogLevel: Level.WARNING);
+    configLogging(show: Level.WARNING);
 
     final removeDash = arguments.isNotEmpty && (arguments[0] == "--no-dash" ||
         (arguments.length > 1 && arguments[1] == "--no-dash"));
@@ -54,10 +53,3 @@ void _usage() {
         """.replaceAll(new RegExp(r'^[ ]*',multiLine: true), ''));
 }
 
-void _configLogging({final Level defaultLogLevel = Level.INFO}) {
-
-    hierarchicalLoggingEnabled = false; // set this to true - its part of Logging SDK
-    Logger.root.level = defaultLogLevel;
-
-    Logger.root.onRecord.listen(new LogPrintHandler(messageFormat: "%t\t%n\t[%p]:\t%m"));
-}
