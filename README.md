@@ -32,20 +32,20 @@ commits as the last digit.
 ### Transformer
 Your pubspec.yaml:
 
-    ```yaml
-    ...
-    dev_dependencies:
-      git_version: any
-    
-    transformers:
-      - git_version
-    ```
+```yaml
+...
+dev_dependencies:
+  git_version: any
+
+transformers:
+  - git_version
+```
 
 Your index.html:
 
-    ```html
-    <body>Version %version%</body>
-    ```
+```html
+<body>Version %version%</body>
+```
     
 Now build your App:
 
@@ -94,5 +94,3 @@ Please file feature requests and bugs at the [issue tracker][tracker].
     ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
     (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
     SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
-
-
