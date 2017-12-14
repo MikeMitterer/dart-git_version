@@ -32,20 +32,20 @@ commits as the last digit.
 ### Transformer
 Your pubspec.yaml:
 
-```yaml
-...
-dev_dependencies:
-  git_version: any
+    yaml
+    ...
+    dev_dependencies:
+      git_version: any
+    
+    transformers:
+      - git_version
+    
+    
+    Your index.html:
+    
+    html
+    <body>Version %version%</body>
 
-transformers:
-  - git_version
-```
-
-Your index.html:
-
-```html
-<body>Version %version%</body>
-```
     
 Now build your App:
 
