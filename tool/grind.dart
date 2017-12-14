@@ -40,7 +40,6 @@ analyze() {
 }
 
 @Task('Deploy built app.')
-//@Depends(build, test)
 deploy() {
     run(sdkBin('pub'),arguments: [ "global", "activate", "--source", "path", "."]);
 }

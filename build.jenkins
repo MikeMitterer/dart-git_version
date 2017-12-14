@@ -1,10 +1,7 @@
 pipeline {
     agent {
-        label 'kde_neon'
+        label 'linux'
     }
-    //environment {
-    //    PATH = "/home/jenkins/.pub-cache/bin:$PATH"
-    //}
     stages {
         stage('Prepare') {
             steps {
