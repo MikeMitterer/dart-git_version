@@ -5,6 +5,8 @@ main(final List<String> args) {
     grind(args);
 }
 
+@DefaultTask('Build the project.')
+
 @Task()
 @Depends(test)
 build() {

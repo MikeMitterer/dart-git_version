@@ -56,7 +56,7 @@ Future<ProcessResult> runGit(final List<String> args,
 /// The tags are sorted by 'version:refname'
 /// More: https://git-scm.com/docs/git-tag
 Future<List<String>> getSortedGitTags() async {
-    final ProcessResult result = await runGit(<String>[ "tag", "--sort", "version:refname"]);
+    final ProcessResult result = await runGit(<String>[ "tag", "-l", "--sort=v:refname"]);
     return result.stdout.toString().split("\n");
 }
 
@@ -84,7 +84,7 @@ Future<String> describeTag(final String tag) async {
 /// Converts GIT extended Format (v0.2-204-g507e9bc) to version
 ///
 /// If [removeDash] is set to true the dash will be replace by a dot. e.g. 0.1-33 -> 0.1.33
-String extendedFormatToVersion(final String versionFromGit,{final bool removeDash = false}) {
+String extendedFormatToVersion(final String versionFromGit,{ final String patchDelimiter = "."}) {
     final RegExp patchVersion = new RegExp(r"([^.]*)\.([^-]*)-([^-]*)-(.*)");
 
     String version = versionFromGit.replaceFirst(new RegExp(r"^[v|V]"), "");
@@ -93,7 +93,7 @@ String extendedFormatToVersion(final String versionFromGit,{final bool removeDas
     // So was: v0.3-1-g179fe76
     if(patchVersion.hasMatch(version)) {
         version = version.replaceAllMapped(patchVersion, (final Match m) {
-            return "${m[1]}.${m[2]}-${m[3]}";
+            return "${m[1]}.${m[2]}${patchDelimiter}${m[3]}";
         });
     }
     // oder so v0.3-g179fe76
@@ -101,10 +101,6 @@ String extendedFormatToVersion(final String versionFromGit,{final bool removeDas
         version = version.replaceAllMapped(new RegExp(r"([^.]*)\.([^-]*)-(.*)"), (final Match m) {
             return "${m[1]}.${m[2]}";
         });
-    }
-
-    if(removeDash) {
-        version = version.replaceAll("-", ".");
     }
 
     return version;

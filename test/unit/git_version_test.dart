@@ -54,12 +54,12 @@ void main() {
 
         test('> Extended format', () async {
             expect(extendedFormatToVersion("v1.0.0"), "1.0.0");
-            expect(extendedFormatToVersion("v0.3-1-g179fe76"), "0.3-1");
-            expect(extendedFormatToVersion("v0.3-1-g179fe76",removeDash: true), "0.3.1");
+            expect(extendedFormatToVersion("v0.3-1-g179fe76"), "0.3.1");
+            expect(extendedFormatToVersion("v0.3-1-g179fe76",patchDelimiter: "-"), "0.3-1");
             expect(extendedFormatToVersion("v0.3-g179fe76"), "0.3");
             expect(extendedFormatToVersion("v0.3"), "0.3");
-            expect(extendedFormatToVersion("v0.2-204-g507e9bc)"), "0.2-204");
-            expect(extendedFormatToVersion("v0.2-204-g507e9bc)",removeDash: true), "0.2.204");
+            expect(extendedFormatToVersion("v0.2-204-g507e9bc)"), "0.2.204");
+            expect(extendedFormatToVersion("v0.2-204-g507e9bc)",patchDelimiter: "-"), "0.2-204");
         }); // end of 'Convert version' test
 
     }); // End of '' group

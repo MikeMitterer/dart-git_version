@@ -1,0 +1,6 @@
+# VM project - Test vm by default.
+platforms: [ vm ]
+
+paths:
+  - test/unit
+

@@ -25,7 +25,7 @@ class InsertGitVersion extends Transformer {
             }
 
             final String tag = await describeTag(tags.last);
-            _version = extendedFormatToVersion(tag,removeDash: true);
+            _version = extendedFormatToVersion(tag);
         }
         
         final id = transform.primaryInput.id;
