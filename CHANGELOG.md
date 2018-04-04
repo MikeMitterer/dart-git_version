@@ -12,6 +12,8 @@ Replaces the '%version%' placeholder with your current git version
 * How to tag for specific version schema [845a8af](https://github.com/mikemitterer/dart-git_version/commit/845a8afb4428d78df511bd550b207c3f662b4a9a)
 
 ### Refactor
+* Changed barback dependency [9a48a38](https://github.com/mikemitterer/dart-git_version/commit/9a48a38f79914f91b3a86db88d364adf8f391e5e)
+* Per default wird als patch-delimiter ein Punkt verwendet [ac4bab6](https://github.com/mikemitterer/dart-git_version/commit/ac4bab6b8bfa5198c0e1277fccca569951000f1a)
 * Updated log-handler dependencies [7d54047](https://github.com/mikemitterer/dart-git_version/commit/7d540470c2142f7c6d5fa3200b7a19d6820b654e)
 
 
