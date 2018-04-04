@@ -24,7 +24,9 @@ dependencies:
 
   where: ^1.1.0
 
+  barback: any
+
 dev_dependencies:
   test: ^0.12.0
   grinder: any
-  barback: any
+
