@@ -3,6 +3,9 @@ Replaces the '%version%' placeholder with your current git version
 
 ## [Unreleased](http://github.com/mikemitterer/dart-git_version/compare/v0.1...HEAD)
 
+### Feature
+* Transformer supports now .html, .dart and (new) .json [0318568](https://github.com/mikemitterer/dart-git_version/commit/0318568ce0b21ede0694213c659f3be516787c69)
+
 ### Fixes
 * Fixes rendering problem in pub [c61dbc2](https://github.com/mikemitterer/dart-git_version/commit/c61dbc24f4fc5a8419fc8c440c1bf3bbf6e9b1a7)
 

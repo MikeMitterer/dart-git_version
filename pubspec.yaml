@@ -1,6 +1,6 @@
 name: git_version
 description: Replaces the '%version%' placeholder with your current git version
-version: 0.1.25
+version: 0.1.28
 
 homepage: https://github.com/MikeMitterer/dart-git_version
 author: Mike Mitterer <office@mikemitterer.at>
