@@ -13,7 +13,7 @@ class InsertGitVersion extends Transformer {
     InsertGitVersion.asPlugin();
 
     Future<bool> isPrimary(AssetId id) async
-        => (id.extension == '.html' || id.extension == ".dart");
+        => (id.extension == '.html' || id.extension == ".dart" || id.extension == ".json");
 
     Future apply(Transform transform) async {
         final content = await transform.primaryInput.readAsString();
