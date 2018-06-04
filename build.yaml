@@ -1,0 +1,46 @@
+# Read about `build.yaml` at https://pub.dartlang.org/packages/build_config
+
+builders:
+  gitVersionBuilder:
+    import: "package:git_version/builder.dart"
+    builder_factories: ["gitVersionBuilder"]
+    
+    build_extensions: {
+      "$web$": [ "git.version.dart" ]
+      }
+    auto_apply: root_package
+    build_to: source
+    
+    #defaults:
+      #options:
+        # Overwrite your version
+        # version: "1.0"
+
+  fromTemplateBuilder:
+    import: "package:git_version/builder.dart"
+    builder_factories: ["fromTemplateBuilder"]
+
+    build_extensions: {
+      ".tmpl.html": [ ".html" ],
+      ".tmpl.json": [ ".json" ]
+      }
+    auto_apply: root_package
+    applies_builders: ["|templateSourceCleanup"]
+
+    #defaults:
+      #options:
+        # Overwrite your version
+        # version: "1.0"
+
+post_process_builders:
+  templateSourceCleanup:
+    import: "package:git_version/builder.dart"
+    builder_factory: "templateSourceCleanup"
+
+    defaults:
+        options:
+          enabled: true
+
+
+
+
