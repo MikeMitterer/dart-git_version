@@ -1,9 +1,15 @@
 # Change Log for git_version
 Replaces the '%version%' placeholder with your current git version
 
-## [Unreleased](http://github.com/mikemitterer/dart-git_version/compare/v0.1...HEAD)
+## [Unreleased](http://github.com/mikemitterer/dart-git_version/compare/v0.2...HEAD)
 
 ### Feature
+* Dart 2.x ready, uses builder instead of transformer [c12b050](https://github.com/mikemitterer/dart-git_version/commit/c12b050acf1865812e940a1e803323da3e428c29)
+
+## [v0.2](http://github.com/mikemitterer/dart-git_version/compare/v0.1...v0.2) - 2018-06-04
+
+### Feature
+* git_version generates git.version.dart, index.html form index.tmpl.html and version.json from version.tmpl.json [9a82aef](https://github.com/mikemitterer/dart-git_version/commit/9a82aef976ded7768a6022dbbaf745fdd9400b84)
 * Transformer supports now .html, .dart and (new) .json [0318568](https://github.com/mikemitterer/dart-git_version/commit/0318568ce0b21ede0694213c659f3be516787c69)
 
 ### Fixes
