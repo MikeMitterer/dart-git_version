@@ -52,7 +52,7 @@ class GitVersionBuilder implements Builder {
             ///     AssetId: $inputId
             ///     Version: $version
             
-            final String _version = "$version";
+            final String gitVersion = "$version";
             '''.replaceAll(new RegExp(r"^[ \t]+",multiLine: true), "");
 }
 

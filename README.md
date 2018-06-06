@@ -1,5 +1,6 @@
 # GitVersion
-> Transformer to replace %version%-String in your .html or .dart-Files with the latest GIT-Tag (Version)
+> Builder to replace %version%-String in index.tmpl.html and version.tmpl.json. 
+> Generates git.version.dart
 
 ## Important
 If your version schema should have three digits (e.g. v.1.0.0),   
@@ -24,33 +25,39 @@ commits as the last digit.
     # Tag your version
     git tag v0.1
     
+Optional - if you want to use `showGitVersion` on the cmdline
+
     # Install showGitVersion cmdline tool
     pub global activate git_version
 
 ## Usage
 
-### Transformer
-Your pubspec.yaml:
+### Builder
+> [Try the mini_web_sample](https://github.com/MikeMitterer/mini_web_sample)
 
-    yaml
-    ...
-    dev_dependencies:
-      git_version: any
-    
-    transformers:
-      - git_version
-    
-    
-    Your index.html:
-    
-    html
-    <body>Version %version%</body>
+Run the following command:
 
+    pub run build_runner clean && pub run build_runner build
     
-Now build your App:
+Serve your site:
 
-    pub build    
+    webdev serve
     
+What the builder does:
+
+   - If it finds `index.tmpl.html` in your web-folder 
+   it replaces `%version%` with the current version from git and converts the
+   file to `index.html`
+   
+   - If it finds `version.tmpl.json` in your web-folder
+   it replaces `%version%` with the current version from git and converts 
+   the file to `version.json`
+   
+   - It generates `git.version.dart` in your web-folder
+   
+The file conversion to `index.html` and `version.json` happens in your "build-output".  
+This is usually something like: `.dart_tool/build/generated/<your package>`   
+            
 ### Commandline
 
     # Go to your local repo
@@ -68,7 +75,7 @@ Please file feature requests and bugs at the [issue tracker][tracker].
 
 ## Licence
 
-    Copyright 2017 Michael Mitterer (office@mikemitterer.at),
+    Copyright 2018 Michael Mitterer (office@mikemitterer.at),
     IT-Consulting and Development Limited
     
     All rights reserved.
