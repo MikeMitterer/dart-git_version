@@ -9,6 +9,9 @@ Replaces the '%version%' placeholder with your current git version
 ### Bugs
 * Application crashed if folder or parent-folder is not a git-repo [239391f](https://github.com/mikemitterer/dart-git_version/commit/239391f7bfc79650bf130032eddd17a2134b487c)
 
+### Docs
+* Renamed sample-folder to example [f0fe031](https://github.com/mikemitterer/dart-git_version/commit/f0fe031a524365fd40ef5c7d79f47c2b7c2af33e)
+
 ## [v0.2](http://github.com/mikemitterer/dart-git_version/compare/v0.1...v0.2) - 2018-06-04
 
 ### Feature
