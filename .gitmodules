@@ -1,0 +1,3 @@
+[submodule "example/mini_web_sample"]
+	path = example/mini_web_sample
+	url = git@github.com:MikeMitterer/mini_web_sample.git
