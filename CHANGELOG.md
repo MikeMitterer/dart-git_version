@@ -6,6 +6,9 @@ Replaces the '%version%' placeholder with your current git version
 ### Feature
 * Dart 2.x ready, uses builder instead of transformer [c12b050](https://github.com/mikemitterer/dart-git_version/commit/c12b050acf1865812e940a1e803323da3e428c29)
 
+### Bugs
+* Application crashed if folder or parent-folder is not a git-repo [239391f](https://github.com/mikemitterer/dart-git_version/commit/239391f7bfc79650bf130032eddd17a2134b487c)
+
 ## [v0.2](http://github.com/mikemitterer/dart-git_version/compare/v0.1...v0.2) - 2018-06-04
 
 ### Feature
