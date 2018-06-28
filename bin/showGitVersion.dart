@@ -1,4 +1,6 @@
 import 'dart:async';
+import 'dart:io';
+import 'package:logging/logging.dart';
 import 'package:git_version/git_version.dart';
 import 'package:console_log_handler/print_log_handler.dart';
 
@@ -14,34 +16,39 @@ Future main(List<String> arguments) async {
         }
     });
 
-    if(arguments.length >= 1 && arguments.first == "--all") {
-        final tags = getVersionTags(await getSortedGitTags());
+    try {
+        if (arguments.length >= 1 && arguments.first == "--all") {
+            final tags = getVersionTags(await getSortedGitTags());
 
-        if(tags.isEmpty) {
-            print(ERROR_NO_VERSION_TAG);
+            if (tags.isEmpty) {
+                print(ERROR_NO_VERSION_TAG);
+            }
+            else {
+                Future.forEach(tags, (final String tag) async {
+                    final String extendedFormat = await describeTag(tag);
+                    print("${extendedFormatToVersion(extendedFormat, patchDelimiter: patchDelimiter)
+                        .padRight(8)} (Tag: ${tag} / ${extendedFormat})");
+                });
+            }
+        }
+        else if (arguments.isEmpty || (arguments.length == 1 && arguments[0] == "--patch-dash")) {
+            final tags = getVersionTags(await getSortedGitTags());
+
+            if (tags.isEmpty) {
+                print(ERROR_NO_VERSION_TAG);
+            }
+            else {
+                final String tag = await describeTag(tags.last);
+
+                _logger.fine("Tag: ${tags.last} with commit: $tag");
+                print("${extendedFormatToVersion(tag, patchDelimiter: patchDelimiter)}");
+            }
         }
         else {
-            Future.forEach(tags, (final String tag) async {
-                final String extendedFormat = await describeTag(tag);
-                print("${extendedFormatToVersion(extendedFormat,patchDelimiter: patchDelimiter)
-                    .padRight(8)} (Tag: ${tag} / ${extendedFormat})");
-            });
+            _usage();
         }
-    } else if(arguments.isEmpty || (arguments.length == 1 && arguments[0] == "--patch-dash")) {
-        final tags = getVersionTags(await getSortedGitTags());
-
-        if(tags.isEmpty) {
-            print(ERROR_NO_VERSION_TAG);
-        }
-        else {
-            final String tag = await describeTag(tags.last);
-
-            _logger.fine("Tag: ${tags.last} with commit: $tag");
-            print("${extendedFormatToVersion(tag,patchDelimiter: patchDelimiter)}");
-        }
-    }
-    else {
-        _usage();
+    } on ProcessException catch(e) {
+        _logger.shout("Failed with: ${e.message}");
     }
 
 }

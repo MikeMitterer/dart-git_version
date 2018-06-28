@@ -23,12 +23,12 @@ dependencies:
     # git: git@github.com:MikeMitterer/dart-console_log_handler.git
     # path: /Volumes/Daten/DevLocal/DevDart/ConsoleLogHandler
 
-  where: ^1.1.0
+  where: ^4.1.0
 
 dev_dependencies:
   test: any
 
-  build_runner: ^0.8.0
-  build_test: ^0.10.0
-  build_web_compilers: ^0.4.0
+  build_runner: any
+  build_test: any
+  build_web_compilers: any
 
