@@ -23,7 +23,7 @@ dependencies:
   # path: /Volumes/Daten/DevLocal/DevDart/ConsoleLogHandler
     # path: /Volumes/Daten/DevLocal/DevDart/ConsoleLogHandler
 
-  where: ^4.1.0
+  where: ^4.0.0
 
 dev_dependencies:
   test: any
