@@ -6,7 +6,7 @@ homepage: https://github.com/MikeMitterer/dart-git_version
 author: Mike Mitterer <office@mikemitterer.at>
 
 environment:
-  sdk: '>=1.20.1 <2.0.0'
+  sdk: ">=2.0.0 <3.0.0"
 
 # Add bin/showGitVersion.dart script to the scripts pub installs.
 # Activate local repo:

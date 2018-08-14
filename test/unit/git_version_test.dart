@@ -1,3 +1,5 @@
+@TestOn("vm")
+
 /*
  * Copyright (c) 2017, Michael Mitterer (office@mikemitterer.at),
  * IT-Consulting and Development Limited.
