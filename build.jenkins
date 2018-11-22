@@ -24,7 +24,7 @@ pipeline {
             steps {
                 ansiColor('xterm') {
                     //echo "PATH is: $PATH"
-                    sh 'pub run build_runner test'
+                    sh 'pub run build_runner test --delete-conflicting-outputs'
                 }
             }
         }
